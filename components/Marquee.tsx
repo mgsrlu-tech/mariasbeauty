@@ -21,19 +21,17 @@ export default function Marquee() {
   return (
     <div
       style={{
-        backgroundColor: "var(--terracotta)",
-        color: "var(--ivory)",
+        backgroundColor: "var(--black)",
+        color: "var(--white)",
         overflow: "hidden",
-        padding: "0.85rem 0",
-        borderTop: "1px solid rgba(250,246,241,0.1)",
-        borderBottom: "1px solid rgba(250,246,241,0.1)",
+        padding: "0.9rem 0",
       }}
     >
       <div
         style={{
           display: "flex",
           gap: "0",
-          animation: "marquee 30s linear infinite",
+          animation: "marquee 28s linear infinite",
           width: "max-content",
         }}
       >
@@ -41,29 +39,23 @@ export default function Marquee() {
           <span
             key={i}
             style={{
-              display: "flex",
+              display: "inline-flex",
               alignItems: "center",
-              gap: "2rem",
+              gap: "1.5rem",
               whiteSpace: "nowrap",
-              fontSize: "0.7rem",
-              letterSpacing: "0.18em",
+              fontSize: "0.68rem",
+              letterSpacing: "0.14em",
               textTransform: "uppercase",
-              fontWeight: 500,
-              paddingRight: "2rem",
+              fontWeight: 600,
+              paddingRight: "1.5rem",
+              fontFamily: "var(--font-syne), sans-serif",
             }}
           >
             {item}
-            <span style={{ color: "rgba(250,246,241,0.4)", fontSize: "0.5rem" }}>✦</span>
+            <span style={{ color: "var(--pink)", fontSize: "0.6rem" }}>✦</span>
           </span>
         ))}
       </div>
-
-      <style>{`
-        @keyframes marquee {
-          from { transform: translateX(0); }
-          to { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   );
 }

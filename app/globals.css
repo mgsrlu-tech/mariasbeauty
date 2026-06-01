@@ -1,15 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --ivory: #FAF6F1;
-  --warm-black: #1A0D0D;
-  --terracotta: #C4785A;
-  --magenta: #7D2B4E;
-  --gold: #C9A84C;
-  --blush: #EDD5C8;
-  --rose-dark: #5C1A34;
-  --cream: #F3EBE2;
-  --muted: #9B8578;
+  --white: #FFFFFF;
+  --off-white: #F8F6F9;
+  --black: #0C0C0C;
+  --pink: #FF1B6B;
+  --pink-pale: #FFF0F6;
+  --pink-mid: #FFB3D1;
+  --gray: #8A8A8A;
+  --gray-light: #EFEFEF;
+  --gray-dark: #3A3A3A;
 }
 
 * {
@@ -21,39 +21,29 @@ html {
 }
 
 body {
-  background-color: var(--ivory);
-  color: var(--warm-black);
+  background-color: var(--white);
+  color: var(--black);
   overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--ivory);
+  background: var(--off-white);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--terracotta);
-  border-radius: 3px;
+  background: var(--pink);
+  border-radius: 2px;
 }
 
 ::selection {
-  background: var(--blush);
-  color: var(--rose-dark);
-}
-
-/* Subtle grain overlay */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 9999;
+  background: var(--pink);
+  color: var(--white);
 }
 
 .font-display {
-  font-family: var(--font-cormorant), serif;
+  font-family: var(--font-syne), sans-serif;
 }
 
 .hover-line {
@@ -62,28 +52,45 @@ body::before {
 .hover-line::after {
   content: '';
   position: absolute;
-  bottom: -1px;
+  bottom: -2px;
   left: 0;
   width: 0;
-  height: 1px;
-  background: currentColor;
-  transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 1.5px;
+  background: var(--pink);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .hover-line:hover::after {
   width: 100%;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(32px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes scrollLine {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(300%); }
+}
+@keyframes pulsePink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
 .animate-fade-up {
-  animation: fadeUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation: fadeUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) both;
 }
 .animate-fade-in {
-  animation: fadeIn 0.6s ease both;
+  animation: fadeIn 0.5s ease both;
 }

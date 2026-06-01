@@ -12,10 +12,10 @@ type Props = {
 };
 
 const tagStyles: Record<string, { bg: string; color: string }> = {
-  "Más vendido": { bg: "var(--warm-black)", color: "var(--gold)" },
-  Nuevo: { bg: "var(--terracotta)", color: "var(--ivory)" },
-  Agotado: { bg: "#9B8578", color: "var(--ivory)" },
-  Oferta: { bg: "var(--rose-dark)", color: "var(--ivory)" },
+  "Más vendido": { bg: "var(--black)", color: "var(--white)" },
+  Nuevo:         { bg: "var(--pink)", color: "var(--white)" },
+  Agotado:       { bg: "var(--gray)", color: "var(--white)" },
+  Oferta:        { bg: "#00C06B", color: "var(--white)" },
 };
 
 export default function ProductCard({ product, onAddToCart, index }: Props) {
@@ -38,18 +38,22 @@ export default function ProductCard({ product, onAddToCart, index }: Props) {
         animationDelay: `${index * 0.06}s`,
         display: "flex",
         flexDirection: "column",
+        cursor: "pointer",
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Image wrapper */}
+      {/* Image area */}
       <div
         style={{
           position: "relative",
           aspectRatio: "1 / 1",
-          backgroundColor: "#F5F0EB",
+          backgroundColor: "var(--off-white)",
           overflow: "hidden",
-          marginBottom: "1rem",
+          marginBottom: "0.9rem",
+          borderRadius: "12px",
+          border: hovered ? "1.5px solid var(--pink-mid)" : "1.5px solid transparent",
+          transition: "border-color 0.25s ease",
         }}
       >
         <Image
@@ -59,8 +63,8 @@ export default function ProductCard({ product, onAddToCart, index }: Props) {
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           style={{
             objectFit: "cover",
-            transition: "transform 0.55s cubic-bezier(0.4, 0, 0.2, 1)",
-            transform: hovered ? "scale(1.06)" : "scale(1)",
+            transition: "transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)",
+            transform: hovered ? "scale(1.07)" : "scale(1)",
           }}
         />
 
@@ -71,13 +75,15 @@ export default function ProductCard({ product, onAddToCart, index }: Props) {
               position: "absolute",
               top: "0.75rem",
               left: "0.75rem",
-              padding: "0.2rem 0.65rem",
+              padding: "0.25rem 0.7rem",
               backgroundColor: tag.bg,
               color: tag.color,
               fontSize: "0.58rem",
-              letterSpacing: "0.15em",
+              letterSpacing: "0.12em",
               textTransform: "uppercase",
-              fontWeight: 600,
+              fontWeight: 700,
+              borderRadius: "100px",
+              fontFamily: "var(--font-syne), sans-serif",
               zIndex: 2,
             }}
           >
@@ -92,47 +98,45 @@ export default function ProductCard({ product, onAddToCart, index }: Props) {
           aria-label={`Agregar ${product.name} al carrito`}
           style={{
             position: "absolute",
-            bottom: 0,
-            left: 0,
-            right: 0,
-            padding: "0.9rem 1rem",
-            backgroundColor: added ? "var(--rose-dark)" : "rgba(26,13,13,0.92)",
-            backdropFilter: "blur(4px)",
-            color: "var(--ivory)",
+            bottom: "0.75rem",
+            left: "0.75rem",
+            right: "0.75rem",
+            padding: "0.75rem 1rem",
+            backgroundColor: added ? "#00C06B" : "var(--black)",
+            color: "var(--white)",
             border: "none",
             cursor: product.tag === "Agotado" ? "not-allowed" : "pointer",
             fontSize: "0.68rem",
-            letterSpacing: "0.18em",
+            letterSpacing: "0.1em",
             textTransform: "uppercase",
-            fontWeight: 500,
+            fontWeight: 700,
+            fontFamily: "var(--font-syne), sans-serif",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            gap: "0.6rem",
-            transform: hovered ? "translateY(0)" : "translateY(100%)",
+            gap: "0.5rem",
+            borderRadius: "100px",
+            transform: hovered ? "translateY(0)" : "translateY(calc(100% + 0.75rem))",
             transition: "transform 0.3s cubic-bezier(0.4,0,0.2,1), background-color 0.25s ease",
             zIndex: 2,
           }}
         >
-          {added ? (
-            <Check size={13} strokeWidth={2.5} />
-          ) : (
-            <ShoppingBag size={13} strokeWidth={1.5} />
-          )}
-          {product.tag === "Agotado" ? "Agotado" : added ? "Agregado" : "Agregar al carrito"}
+          {added ? <Check size={13} strokeWidth={2.5} /> : <ShoppingBag size={13} strokeWidth={2} />}
+          {product.tag === "Agotado" ? "Agotado" : added ? "¡Agregado!" : "Agregar"}
         </button>
       </div>
 
       {/* Info */}
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: 1, padding: "0 0.25rem" }}>
         <p
           style={{
-            fontSize: "0.65rem",
-            letterSpacing: "0.15em",
+            fontSize: "0.62rem",
+            letterSpacing: "0.12em",
             textTransform: "uppercase",
-            color: "var(--terracotta)",
-            fontWeight: 600,
-            marginBottom: "0.2rem",
+            color: "var(--pink)",
+            fontWeight: 700,
+            marginBottom: "0.15rem",
+            fontFamily: "var(--font-syne), sans-serif",
           }}
         >
           {product.brand}
@@ -140,64 +144,45 @@ export default function ProductCard({ product, onAddToCart, index }: Props) {
 
         <h3
           style={{
-            fontFamily: "var(--font-cormorant), serif",
-            fontSize: "1.15rem",
-            fontWeight: 500,
-            color: "var(--warm-black)",
-            lineHeight: 1.25,
-            marginBottom: "0.5rem",
-            letterSpacing: "0.01em",
+            fontFamily: "var(--font-syne), sans-serif",
+            fontSize: "0.95rem",
+            fontWeight: 600,
+            color: "var(--black)",
+            lineHeight: 1.3,
+            marginBottom: "0.6rem",
+            letterSpacing: "-0.01em",
           }}
         >
           {product.name}
         </h3>
 
-        <p
-          style={{
-            fontSize: "0.75rem",
-            color: "var(--muted)",
-            lineHeight: 1.6,
-            marginBottom: "0.75rem",
-            display: hovered ? "block" : "none",
-          }}
-        >
-          {product.description}
-        </p>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          <span
-            style={{
-              fontFamily: "var(--font-cormorant), serif",
-              fontSize: "1.25rem",
-              fontWeight: 500,
-              color: "var(--warm-black)",
-            }}
-          >
-            ${product.price.toLocaleString("es-MX")}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: "0.5rem" }}>
             <span
               style={{
-                fontSize: "0.7rem",
-                fontFamily: "var(--font-jost), sans-serif",
-                fontWeight: 400,
-                color: "var(--muted)",
-                marginLeft: "0.3rem",
+                fontFamily: "var(--font-syne), sans-serif",
+                fontSize: "1.1rem",
+                fontWeight: 700,
+                color: "var(--black)",
+                letterSpacing: "-0.02em",
               }}
             >
-              MXN
+              ${product.price.toLocaleString("es-MX")}
             </span>
-          </span>
-          {product.originalPrice && (
-            <span
-              style={{
-                fontSize: "0.85rem",
-                color: "var(--muted)",
-                textDecoration: "line-through",
-                fontFamily: "var(--font-cormorant), serif",
-              }}
-            >
-              ${product.originalPrice.toLocaleString("es-MX")}
-            </span>
-          )}
+            <span style={{ fontSize: "0.65rem", color: "var(--gray)", fontWeight: 500 }}>MXN</span>
+            {product.originalPrice && (
+              <span
+                style={{
+                  fontSize: "0.85rem",
+                  color: "var(--gray)",
+                  textDecoration: "line-through",
+                  fontFamily: "var(--font-syne), sans-serif",
+                }}
+              >
+                ${product.originalPrice.toLocaleString("es-MX")}
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </article>

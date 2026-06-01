@@ -21,12 +21,12 @@ export default function StoreSection({ onAddToCart }: Props) {
     <section
       id="tienda"
       style={{
-        backgroundColor: "var(--ivory)",
-        padding: "6rem 2rem",
+        backgroundColor: "var(--white)",
+        padding: "5rem 2rem 6rem",
       }}
     >
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-        {/* Section header */}
+      <div style={{ maxWidth: "1320px", margin: "0 auto" }}>
+        {/* Header */}
         <div
           style={{
             display: "flex",
@@ -34,83 +34,62 @@ export default function StoreSection({ onAddToCart }: Props) {
             justifyContent: "space-between",
             flexWrap: "wrap",
             gap: "2rem",
-            marginBottom: "3.5rem",
+            marginBottom: "3rem",
+            paddingBottom: "2rem",
+            borderBottom: "1px solid var(--gray-light)",
           }}
         >
           <div>
-            <div
+            <p
               style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                marginBottom: "0.75rem",
+                fontSize: "0.65rem",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+                color: "var(--pink)",
+                fontWeight: 700,
+                fontFamily: "var(--font-syne), sans-serif",
+                marginBottom: "0.5rem",
               }}
             >
-              <div
-                style={{
-                  width: "30px",
-                  height: "1px",
-                  backgroundColor: "var(--terracotta)",
-                }}
-              />
-              <span
-                style={{
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.25em",
-                  textTransform: "uppercase",
-                  color: "var(--terracotta)",
-                  fontWeight: 500,
-                }}
-              >
-                Colección
-              </span>
-            </div>
+              — Colección
+            </p>
             <h2
               style={{
-                fontFamily: "var(--font-cormorant), serif",
-                fontSize: "clamp(2.5rem, 5vw, 3.5rem)",
-                fontWeight: 300,
-                lineHeight: 1.1,
-                letterSpacing: "-0.01em",
+                fontFamily: "var(--font-syne), sans-serif",
+                fontSize: "clamp(2rem, 4vw, 3rem)",
+                fontWeight: 800,
+                lineHeight: 1.05,
+                letterSpacing: "-0.04em",
+                textTransform: "uppercase",
+                color: "var(--black)",
               }}
             >
-              Todo lo que te gusta,
-              <br />
-              <em style={{ fontStyle: "italic", color: "var(--terracotta)" }}>
-                en un lugar.
-              </em>
+              Todo lo que te gusta,{" "}
+              <span style={{ color: "var(--pink)", fontStyle: "italic" }}>en un lugar.</span>
             </h2>
           </div>
 
           {/* Category filters */}
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "0.5rem",
-            }}
-          >
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 style={{
-                  padding: "0.5rem 1.1rem",
-                  fontSize: "0.68rem",
-                  letterSpacing: "0.12em",
-                  textTransform: "uppercase",
-                  fontWeight: 500,
+                  padding: "0.5rem 1.25rem",
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.08em",
+                  fontWeight: 600,
                   cursor: "pointer",
-                  transition: "all 0.25s ease",
+                  transition: "all 0.2s ease",
+                  borderRadius: "100px",
+                  fontFamily: "var(--font-syne), sans-serif",
                   border: activeCategory === cat
-                    ? "1px solid var(--terracotta)"
-                    : "1px solid rgba(196,120,90,0.3)",
-                  backgroundColor: activeCategory === cat
-                    ? "var(--terracotta)"
-                    : "transparent",
-                  color: activeCategory === cat
-                    ? "var(--ivory)"
-                    : "var(--muted)",
+                    ? "1.5px solid var(--pink)"
+                    : "1.5px solid var(--gray-light)",
+                  backgroundColor: activeCategory === cat ? "var(--pink)" : "transparent",
+                  color: activeCategory === cat ? "var(--white)" : "var(--gray-dark)",
+                  textTransform: "uppercase",
                 }}
               >
                 {cat}
@@ -123,8 +102,8 @@ export default function StoreSection({ onAddToCart }: Props) {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))",
-            gap: "2.5rem 2rem",
+            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gap: "2rem 1.5rem",
           }}
         >
           {filtered.map((product, i) => (

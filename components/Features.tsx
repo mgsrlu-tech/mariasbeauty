@@ -2,24 +2,24 @@
 
 const pillars = [
   {
-    symbol: "I",
+    num: "01",
     title: "Marcas que amas",
-    desc: "Curadas con criterio: Rhode, Summer Fridays, Patrick Ta, Beauty of Joseon, e.l.f. y más.",
+    desc: "Rhode, Summer Fridays, Patrick Ta, Beauty of Joseon, e.l.f. y más.",
   },
   {
-    symbol: "II",
-    title: "Precios en pesos",
-    desc: "Sin conversiones ni sorpresas. Todo en MXN, con métodos de pago mexicanos.",
+    num: "02",
+    title: "Precios en MXN",
+    desc: "Sin conversiones ni sorpresas. Paga en pesos con métodos mexicanos.",
   },
   {
-    symbol: "III",
+    num: "03",
     title: "Envío a todo México",
-    desc: "Enviamos desde la Ciudad de México. Gratis en compras mayores a $800 MXN.",
+    desc: "Salimos desde CDMX. Gratis en pedidos mayores a $800 MXN.",
   },
   {
-    symbol: "IV",
-    title: "100% originales",
-    desc: "Productos auténticos, importados directamente. Cero réplicas, cero intermediarios dudosos.",
+    num: "04",
+    title: "100% Originales",
+    desc: "Productos auténticos, importados directamente. Sin réplicas.",
   },
 ];
 
@@ -27,77 +27,55 @@ export default function Features() {
   return (
     <section
       style={{
-        backgroundColor: "var(--warm-black)",
+        backgroundColor: "var(--black)",
         padding: "6rem 2rem",
         position: "relative",
         overflow: "hidden",
       }}
     >
-      {/* Decorative background element */}
+      {/* Pink glow */}
       <div
         style={{
           position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "600px",
-          height: "600px",
+          top: "-20%",
+          right: "-10%",
+          width: "500px",
+          height: "500px",
           borderRadius: "50%",
-          border: "1px solid rgba(250,246,241,0.04)",
-          pointerEvents: "none",
-        }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          width: "400px",
-          height: "400px",
-          borderRadius: "50%",
-          border: "1px solid rgba(250,246,241,0.03)",
+          background: "radial-gradient(circle, rgba(255,27,107,0.12) 0%, transparent 70%)",
           pointerEvents: "none",
         }}
       />
 
-      <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
+      <div style={{ maxWidth: "1320px", margin: "0 auto" }}>
         {/* Header */}
-        <div style={{ marginBottom: "4rem", maxWidth: "500px" }}>
-          <div
+        <div style={{ marginBottom: "4rem" }}>
+          <p
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "0.75rem",
-              marginBottom: "1rem",
+              fontSize: "0.65rem",
+              letterSpacing: "0.2em",
+              textTransform: "uppercase",
+              color: "var(--pink)",
+              fontWeight: 700,
+              fontFamily: "var(--font-syne), sans-serif",
+              marginBottom: "0.75rem",
             }}
           >
-            <div style={{ width: "30px", height: "1px", backgroundColor: "var(--gold)" }} />
-            <span
-              style={{
-                fontSize: "0.65rem",
-                letterSpacing: "0.25em",
-                textTransform: "uppercase",
-                color: "var(--gold)",
-                fontWeight: 500,
-              }}
-            >
-              Nuestra filosofía
-            </span>
-          </div>
+            — Por qué elegirnos
+          </p>
           <h2
             style={{
-              fontFamily: "var(--font-cormorant), serif",
-              fontSize: "clamp(2.2rem, 4vw, 3rem)",
-              fontWeight: 300,
-              color: "var(--ivory)",
-              lineHeight: 1.15,
-              letterSpacing: "-0.01em",
+              fontFamily: "var(--font-syne), sans-serif",
+              fontSize: "clamp(2rem, 4vw, 3.5rem)",
+              fontWeight: 800,
+              color: "var(--white)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.04em",
+              textTransform: "uppercase",
             }}
           >
-            La belleza real
-            <br />
-            <em style={{ color: "var(--blush)", fontStyle: "italic" }}>no se improvisa.</em>
+            Beauty sin{" "}
+            <span style={{ color: "var(--pink)", fontStyle: "italic" }}>complicaciones.</span>
           </h2>
         </div>
 
@@ -105,22 +83,23 @@ export default function Features() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+            gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
             gap: "0",
-            borderTop: "1px solid rgba(250,246,241,0.08)",
+            borderTop: "1px solid rgba(255,255,255,0.08)",
           }}
         >
-          {pillars.map((pillar, i) => (
+          {pillars.map((p, i) => (
             <div
               key={i}
               style={{
                 padding: "2.5rem 2rem",
-                borderRight: i < pillars.length - 1 ? "1px solid rgba(250,246,241,0.08)" : "none",
-                borderBottom: "1px solid rgba(250,246,241,0.08)",
-                transition: "background-color 0.3s ease",
+                borderRight: i < pillars.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
+                borderBottom: "1px solid rgba(255,255,255,0.08)",
+                transition: "background-color 0.25s ease",
+                position: "relative",
               }}
               onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(196,120,90,0.05)";
+                (e.currentTarget as HTMLElement).style.backgroundColor = "rgba(255,27,107,0.06)";
               }}
               onMouseLeave={(e) => {
                 (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
@@ -128,37 +107,38 @@ export default function Features() {
             >
               <div
                 style={{
-                  fontFamily: "var(--font-cormorant), serif",
-                  fontSize: "0.75rem",
+                  fontFamily: "var(--font-syne), sans-serif",
+                  fontSize: "0.65rem",
                   letterSpacing: "0.2em",
-                  color: "var(--terracotta)",
-                  marginBottom: "1.5rem",
-                  fontStyle: "italic",
+                  color: "var(--pink)",
+                  fontWeight: 700,
+                  marginBottom: "1.25rem",
                 }}
               >
-                {pillar.symbol}
+                {p.num}
               </div>
               <h3
                 style={{
-                  fontFamily: "var(--font-cormorant), serif",
-                  fontSize: "1.35rem",
-                  fontWeight: 500,
-                  color: "var(--ivory)",
-                  marginBottom: "0.75rem",
-                  letterSpacing: "0.01em",
+                  fontFamily: "var(--font-syne), sans-serif",
+                  fontSize: "1.05rem",
+                  fontWeight: 700,
+                  color: "var(--white)",
+                  marginBottom: "0.65rem",
+                  letterSpacing: "-0.02em",
+                  textTransform: "uppercase",
                 }}
               >
-                {pillar.title}
+                {p.title}
               </h3>
               <p
                 style={{
-                  fontSize: "0.85rem",
+                  fontSize: "0.82rem",
                   lineHeight: 1.7,
-                  color: "rgba(250,246,241,0.5)",
-                  fontWeight: 300,
+                  color: "rgba(255,255,255,0.45)",
+                  fontWeight: 400,
                 }}
               >
-                {pillar.desc}
+                {p.desc}
               </p>
             </div>
           ))}
