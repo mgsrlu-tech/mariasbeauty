@@ -160,8 +160,8 @@ export default function Hero() {
               fontWeight: 300,
             }}
           >
-            Skincare formulado con ingredientes de alta pureza para la mujer mexicana.
-            Sin parabenos, sin fragancias sintéticas.
+            Las marcas que amas — Summer Fridays, Rhode, Patrick Ta, Beauty of Joseon —
+            en un solo lugar. Envío a todo México.
           </p>
 
           <a

@@ -74,10 +74,10 @@ export default function StoreSection({ onAddToCart }: Props) {
                 letterSpacing: "-0.01em",
               }}
             >
-              Cuida tu piel
+              Todo lo que te gusta,
               <br />
               <em style={{ fontStyle: "italic", color: "var(--terracotta)" }}>
-                cada día.
+                en un lugar.
               </em>
             </h2>
           </div>

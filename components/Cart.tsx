@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { X, Minus, Plus, ShoppingBag } from "lucide-react";
 import type { Product } from "@/app/data/products";
 
@@ -146,29 +147,24 @@ export default function Cart({ items, onClose, onUpdate, onRemove }: Props) {
                     borderBottom: "1px solid rgba(196,120,90,0.1)",
                   }}
                 >
-                  {/* Mini visual */}
+                  {/* Product image */}
                   <div
                     style={{
-                      width: "72px",
-                      height: "72px",
+                      width: "80px",
+                      height: "80px",
                       flexShrink: 0,
-                      backgroundColor: "var(--cream)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      background: `radial-gradient(ellipse at center, ${item.color}20 0%, var(--cream) 70%)`,
+                      backgroundColor: "#F5F0EB",
+                      position: "relative",
+                      overflow: "hidden",
                     }}
                   >
-                    <span
-                      style={{
-                        fontFamily: "var(--font-cormorant), serif",
-                        fontSize: "1.4rem",
-                        color: item.color,
-                        opacity: 0.7,
-                      }}
-                    >
-                      {item.emoji}
-                    </span>
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      sizes="80px"
+                      style={{ objectFit: "cover" }}
+                    />
                   </div>
 
                   <div style={{ flex: 1, minWidth: 0 }}>
@@ -189,7 +185,7 @@ export default function Cart({ items, onClose, onUpdate, onRemove }: Props) {
                         marginBottom: "0.75rem",
                       }}
                     >
-                      {item.subtitle}
+                      {item.brand}
                     </p>
 
                     <div

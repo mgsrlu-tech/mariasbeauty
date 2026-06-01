@@ -1,14 +1,18 @@
 "use client";
 
 const items = [
-  "Sin parabenos",
-  "Cruelty-free",
-  "Dermatológicamente probado",
-  "Ingredientes naturales",
-  "Hecho con amor",
+  "Rhode Skin",
+  "Summer Fridays",
+  "Patrick Ta",
+  "Beauty of Joseon",
+  "e.l.f. Cosmetics",
+  "Kiko Milano",
+  "Anastasia Beverly Hills",
+  "Starface",
+  "Shiseido",
+  "Anua",
   "Envío a todo México",
-  "Sin fragancia sintética",
-  "Formulado para clima mexicano",
+  "100% Originales",
 ];
 
 export default function Marquee() {

@@ -3,23 +3,23 @@
 const pillars = [
   {
     symbol: "I",
-    title: "Ingredientes puros",
-    desc: "Seleccionamos activos de alta concentración, libres de rellenos, con origen verificado.",
+    title: "Marcas que amas",
+    desc: "Curadas con criterio: Rhode, Summer Fridays, Patrick Ta, Beauty of Joseon, e.l.f. y más.",
   },
   {
     symbol: "II",
-    title: "Ciencia + naturaleza",
-    desc: "Fórmulas respaldadas por dermatología, inspiradas en la riqueza botánica mexicana.",
+    title: "Precios en pesos",
+    desc: "Sin conversiones ni sorpresas. Todo en MXN, con métodos de pago mexicanos.",
   },
   {
     symbol: "III",
-    title: "Tu tipo de piel",
-    desc: "Diseñados para el clima, la pigmentación y las necesidades de la piel latinoamericana.",
+    title: "Envío a todo México",
+    desc: "Enviamos desde la Ciudad de México. Gratis en compras mayores a $800 MXN.",
   },
   {
     symbol: "IV",
-    title: "Sin compromisos",
-    desc: "Cruelty-free, vegano, sin parabenos, sin sulfatos. Belleza ética sin sacrificar eficacia.",
+    title: "100% originales",
+    desc: "Productos auténticos, importados directamente. Cero réplicas, cero intermediarios dudosos.",
   },
 ];
 
